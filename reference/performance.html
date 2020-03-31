@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ROCR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0-9</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0-10</span>
       </span>
     </div>
 
@@ -218,15 +218,14 @@ negatives), FP (\# false positives), FN (\# false negatives).</p><dl'>
    \(\alpha=\frac{1}{2}\), the mean is balanced. A
    frequent equivalent formulation is
    \(F = \frac{(\beta^2+1) \cdot P \cdot R}{R + \beta^2 \cdot
-     P}\). In this formulation, the mean is
-   balanced if \(\beta=1\). Currently, ROCR only accepts the
-   alpha version
-   as input (e.g. \(\alpha=0.5\)). If no value for alpha is given, the mean will be
-   balanced by default.</p></dd>
- <dt><code>rch</code>:</dt><dd><p>ROC convex hull. A ROC (=<code>tpr</code> vs <code>fpr</code>) curve with concavities
-   (which represent suboptimal choices of cutoff) removed (Fawcett 2001). Since the
-   result is already a parametric performance curve, it cannot be
-   used in combination with other measures.</p></dd>
+     P}\). In this formulation, the
+     mean is balanced if \(\beta=1\). Currently, ROCR only accepts
+     the alpha version as input (e.g. \(\alpha=0.5\)). If no 
+     value for alpha is given, the mean will be balanced by default.</p></dd>
+ <dt><code>rch</code>:</dt><dd><p>ROC convex hull. A ROC (=<code>tpr</code> vs <code>fpr</code>) curve 
+   with concavities (which represent suboptimal choices of cutoff) removed 
+   (Fawcett 2001). Since the result is already a parametric performance 
+   curve, it cannot be used in combination with other measures.</p></dd>
  <dt><code>auc</code>:</dt><dd><p>Area under the ROC curve. This is equal to the value of the
    Wilcoxon-Mann-Whitney test statistic and also the probability that the
    classifier will score are randomly drawn positive sample higher than a
@@ -235,7 +234,11 @@ negatives), FP (\# false positives), FN (\# false negatives).</p><dl'>
    measure cannot be combined with other measures into a parametric
    curve. The partial area under the ROC curve up to a given false
    positive rate can be calculated by passing the optional parameter
-   <code>fpr.stop=0.5</code> (or any other value between 0 and 1) to <code>performance</code>.</p></dd>
+   <code>fpr.stop=0.5</code> (or any other value between 0 and 1) to 
+   <code>performance</code>.</p></dd>
+ <dt><code>aucpr</code>:</dt><dd><p>Area under the Precision/Recall curve. Since the output
+   of <code>aucpr</code> is cutoff-independent, this measure cannot be combined 
+   with other measures into a parametric curve.</p></dd>
  <dt><code>prbe</code>:</dt><dd><p>Precision-recall break-even point. The cutoff(s) where
    precision and recall are equal. At this point, positive and negative
    predictions are made at the same rate as their prevalence in the
