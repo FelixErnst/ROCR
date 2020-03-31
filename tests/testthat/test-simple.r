@@ -43,6 +43,7 @@ test_that("simple:",{
   pcmiss.reference <- c(5/10, 4/9, 3/8, 3/7, 2/6, 1/5, 1/4, 0/3, 0/2, 0/1, 0/0)
   
   auc.reference <- 0.84
+  aucpr.reference <- 0.8814286
   
   cal.reference <- c()
   ind <- rev(order(some.predictions))
@@ -124,10 +125,11 @@ test_that("simple:",{
     rpp <- .get.performance.measure.result(pred, "rpp")
     rnp <- .get.performance.measure.result(pred, "rnp")
     
-    auc <- .get.performance.measure.result(pred, "auc")
-    prbe<- .get.performance.measure.result(pred, "prbe")
-    rch <- .get.performance.measure.result(pred, "rch")
-    
+    auc <- performance(pred, "auc")@y.values[[1]]
+    aucpr <- performance(pred, "aucpr")@y.values[[1]]
+    prbe<- performance(pred, "prbe")@y.values[[1]]
+    rch <- performance(pred, "rch")@y.values[[1]]
+
     mxe <- .get.performance.measure.result(pred, "mxe")
     rmse<- .get.performance.measure.result(pred, "rmse")
     
@@ -145,7 +147,7 @@ test_that("simple:",{
                 rec=rec, sens=sens, fnr=fnr, tnr=tnr,
                 spec=spec, ppv=ppv, prec=prec, npv=npv, 
                 fall=fall, miss=miss, pcfall=pcfall, pcmiss=pcmiss, rpp=rpp, rnp=rnp,
-                auc=auc, prbe=prbe, rch=rch, mxe=mxe, 
+                auc=auc, aucpr=aucpr, prbe=prbe, rch=rch, mxe=mxe, 
                 rmse=rmse, phi=phi, mat=mat, mi=mi, chisq=chisq, odds=odds,
                 lift=lift, f=f, sar=sar, ecost=ecost, cost=cost))
     
@@ -210,6 +212,7 @@ test_that("simple:",{
   expect_equal(rnp,rnp.reference)
   
   expect_equal(auc, auc.reference)
+  expect_equal(aucpr, aucpr.reference, tolerance = .0000001)
   expect_equal(prbe, prbe.reference)
   
   expect_equal(mxe, mxe.reference)
