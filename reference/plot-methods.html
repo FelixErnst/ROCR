@@ -279,8 +279,11 @@ plot; otherwise a new plot is drawn.</p></td>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ROCR</span>)
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>ROCR.simple</span>)
 <span class='no'>pred</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='prediction.html'>prediction</a></span>( <span class='no'>ROCR.simple</span>$<span class='no'>predictions</span>, <span class='no'>ROCR.simple</span>$<span class='no'>labels</span> )
-<span class='no'>perf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='performance.html'>performance</a></span>( <span class='no'>pred</span>, <span class='st'>"tpr"</span>, <span class='st'>"fpr"</span> )
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>( <span class='no'>perf</span> )</div><div class='img'><img src='plot-methods-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='no'>pred</span></div><div class='output co'>#&gt; A prediction instance
+#&gt;   with 200 data points</div><div class='input'><span class='no'>perf</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='performance.html'>performance</a></span>( <span class='no'>pred</span>, <span class='st'>"tpr"</span>, <span class='st'>"fpr"</span> )
+<span class='no'>perf</span></div><div class='output co'>#&gt; A performance instance
+#&gt;   'False positive rate' vs. 'True positive rate' (alpha: 'Cutoff')
+#&gt;   with 201 data points</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>( <span class='no'>perf</span> )</div><div class='img'><img src='plot-methods-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># To entertain your children, make your plots nicer</span>
 <span class='co'># using ROCR's flexible parameter passing mechanisms</span>
 <span class='co'># (much cheaper than a finger painting set)</span>
@@ -302,7 +305,7 @@ plot; otherwise a new plot is drawn.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Felix G.M. Ernst.</p>
+  <p>Developed by <a href='mail:tobias.sing@mpi-sb.mpg.de'>Tobias Sing</a>, <a href='mail:osander@mpi-sb.mpg.de'>Oliver Sander</a>, Niko Beerenwinkel, Thomas Lengauer, <a href='mail:felix.gm.ernst@outlook.com'>Felix G.M. Ernst</a>.</p>
 </div>
 
 <div class="pkgdown">
